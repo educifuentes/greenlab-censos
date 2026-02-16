@@ -15,7 +15,7 @@ tab1, tab2 = st.tabs([
 ])
 
 with tab1:
-    render_model_docs("models/staging/censo_2024/_stg_censo_2024__personas.yml", target_name="personas")
+    render_model_docs("models/staging/censo_2024/_src_censo_2024.yml", target_name="personas")
 
 with tab2:
     render_model_docs("models/staging/censo_2024/_stg_censo_2024__hogares.yml", target_name="hogares")
