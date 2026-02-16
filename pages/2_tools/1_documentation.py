@@ -18,4 +18,4 @@ with tab1:
     render_model_docs("models/staging/censo_2024/_src_censo_2024.yml", target_name="personas")
 
 with tab2:
-    render_model_docs("models/staging/censo_2024/_stg_censo_2024__hogares.yml", target_name="hogares")
+    render_model_docs("models/staging/censo_2024/_src_censo_2024.yml", target_name="hogares")
