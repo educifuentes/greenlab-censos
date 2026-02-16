@@ -1,4 +1,6 @@
 ICONS = {
+    # branding,
+    "logo": ":material/energy_program_saving:",
     # VALIDATIONS   
     "check": ":material/check_box:",
     "warning": ":material/warning:",

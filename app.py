@@ -4,7 +4,7 @@ from utilities.ui_components.icons import ICONS
 # --- PAGE CONFIG ---
 st.set_page_config(
     page_title="Greenlab Censos | Dashboard",
-    page_icon="🌿",
+    page_icon=ICONS["logo"],
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -33,7 +33,7 @@ pg = st.navigation(pages)
 
 # --- SIDEBAR & BRANDING ---
 with st.sidebar:
-    st.markdown("# 🌿 Greenlab")
+    st.markdown(f"# {ICONS['logo']} Greenlab")
     st.markdown("---")
 
 # --- RUN NAVIGATION ---
