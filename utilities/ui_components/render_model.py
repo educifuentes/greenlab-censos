@@ -6,19 +6,20 @@ def render_model_ui(df, source_name=None, table_name=None):
     Includes shape, columns, and the dataframe.
     Optionally fetches and displays description from YAML config.
     """
-    # if source_name and table_name:
-    #     config = get_table_config(source_name=source_name, table_name=table_name)
-    #     if config and config.get("description"):
-    #         st.markdown(config.get("description"))
 
-    # st.markdown(f"Source: `{source_name}.{table_name}`")
     st.subheader(table_name)
 
-
-    st.write(df.shape)
-    st.code(df.columns.tolist())
-    # Format dtypes as a single line: col1: type1 | col2: type2
-    dtypes_str = " | ".join([f"{col}: {dtype}" for col, dtype in df.dtypes.items()])
-    st.code(dtypes_str)
     st.dataframe(df)
+
+    col_count = len(df.columns)
+    row_count = len(df)
+    st.markdown(f"**Shape:** `{row_count:,} rows` × `{col_count} columns`")
+    
+    # Format dtypes: column_name : type (aligned)
+    max_col_width = max(len(col) for col in df.columns)
+    schema_str = "\n".join([f"{col.ljust(max_col_width)} : {dtype}" for col, dtype in df.dtypes.items()])
+    
+    with st.expander("View columns", expanded=True):
+        st.code(schema_str, language="python")
+
     st.divider()

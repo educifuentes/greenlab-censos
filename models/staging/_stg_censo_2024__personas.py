@@ -16,11 +16,8 @@ def get_stg_censo_2024__personas():
     # Construct the absolute path (project root is 2 levels up from this staging file)
     project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
     csv_path = os.path.join(project_root, csv_rel_path)
+
+    df = pd.read_csv(csv_path, delimiter=';')
     
     # Read and return the dataframe
-    return pd.read_csv(csv_path)
-
-if __name__ == "__main__":
-    df = get_stg_censo_2024__personas()
-    print(f"Loaded {len(df)} rows.")
-    print(df.head())
+    return df
