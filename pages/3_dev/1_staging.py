@@ -1,6 +1,6 @@
 import streamlit as st
 
-from models.staging._stg_censo_2024__personas import get_stg_censo_2024__personas
+from models.staging.censo_2024._stg_censo_2024__personas import stg_censo_2024__personas
 
 from utilities.ui_components.render_model import render_model_ui
 from utilities.ui_components.icons import render_icon
@@ -15,8 +15,8 @@ tab1, tab2 = st.tabs([
 ])
 
 with tab1:
-    censo_2024__personas_df = get_stg_censo_2024__personas()
-    render_model_ui(censo_2024__personas_df, table_name="Personas")
+    personas_df = stg_censo_2024__personas()
+    render_model_ui(personas_df, table_name="Personas")
 
 with tab2:
     st.header("Hogares")

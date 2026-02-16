@@ -6,7 +6,7 @@ from utilities.ui_components.icons import render_icon
 st.set_page_config(page_title="Documentation", layout="wide")
 
 # Page settings and header
-st.title("Documentation")
+st.title("Documentación")
 
 # Create tabs for organization
 tab1, tab2 = st.tabs([
@@ -15,7 +15,7 @@ tab1, tab2 = st.tabs([
 ])
 
 with tab1:
-    render_model_docs("models/staging/_src_censos.yml", target_name="personas")
+    render_model_docs("models/staging/censo_2024/_stg_censo_2024__personas.yml", target_name="personas")
 
 with tab2:
-    render_model_docs("models/staging/_src_censos.yml", target_name="hogares")
+    render_model_docs("models/staging/censo_2024/_stg_censo_2024__hogares.yml", target_name="hogares")
