@@ -5,6 +5,9 @@ sources:
     tables:
       - name: hogares
         dictionary_url_pdf: xxx
+        path: seeds/ine/hogares_censo2024.parquet
+      - name: viviendas
+        path: seeds/ine/viviendas_censo2024.parquet
       - name: personas
         description: "tabla anivel de personas 100k filas sample"
         documentation_path: seeds/censo_2024/Diccionarios-y-Codigos/Censo2024-Diccionario_Codigos-PERSONAS.pdf
