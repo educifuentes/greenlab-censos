@@ -1,3 +1,11 @@
-sources
+sources:
   censos:
-  url_dropbox: https://www.dropbox.com/scl/fo/2jlvpqfz5ouve5mpatqq4/AFmA5P8JnYceWLnFBLRufUw?rlkey=xic69w0jg3kvq03sj44qn13e3&st=75w1wibl&dl=0
+    url_dropbox: https://www.dropbox.com/scl/fo/2jlvpqfz5ouve5mpatqq4/AFmA5P8JnYceWLnFBLRufUw?rlkey=xic69w0jg3kvq03sj44qn13e3&st=75w1wibl&dl=0
+    tables:
+      - name: hogares
+        dictionary_url_pdf: xxx
+      - name: personas
+        description: tabla anivel de personas 100k filas sample
+        dictionary_url_pdf: xxx
+        url: https://www.dropbox.com/scl/fi/qj2i9qsufyas67t36p2kw/personas_censo2024_100k.csv?rlkey=hfldahfjydvcocs67zgsnae3z&st=cpweiwnh&dl=0
+        path: seeds/censo_2024/Censo_2024-Personas/data/personas_censo2024_100k.csv

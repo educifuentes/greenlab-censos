@@ -1,17 +1,34 @@
 ICONS = {
-    # branding,
-    "logo": ":material/energy_program_saving:",
+    # branding
+    "logo": "energy_program_saving",
+    
+    # tables
+    "person": "person",
+    "hogares": "family_group",
+    "bases_ccu": "assignment",
+    "contratos": "contract",
+    
     # VALIDATIONS   
-    "check": ":material/check_box:",
-    "warning": ":material/warning:",
-    "close": ":material/close:",
-    # PAGINAS
-    "locales": ":material/sports_bar:",
-    "censos": ":material/checklist_rtl:",
-    "bases_ccu": ":material/assignment:",
-    "contratos": ":material/contract:",
+    "check": "check_box",
+    "warning": "warning",
+    "close": "close",
+    
     # otros
-    "documentation": ":material/article:",
-    "metrics": ":material/calculate:",
-    "not_apply": ":material/circle:"
+    "documentation": "article",
+    "metrics": "calculate",
+    "not_apply": "circle",
+    
+    # UI/Layout
+    "dashboard": "dashboard",
+    "search": "search",
+    "layers": "layers_clear",
+    "settings": "settings_input_component",
+    "database": "database"
 }
+
+def render_icon(icon_key: str) -> str:
+    """
+    Returns the streamlit material icon format for a given key.
+    """
+    icon_name = ICONS.get(icon_key, "help")
+    return f":material/{icon_name}:"
