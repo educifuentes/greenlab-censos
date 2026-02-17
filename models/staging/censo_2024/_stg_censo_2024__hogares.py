@@ -20,8 +20,15 @@ def stg_censo_2024__hogares():
 
     # read parquet
     df = pd.read_parquet(file_path)
+
+    # data types
     
-    # leave only 100,000 rows
-    df = df.head(100000)
+    # cast all columns to nullable int32 (efficient for survey codes with missing values)
+    df = df.apply(pd.to_numeric, errors='ignore')
+    for col in df.select_dtypes(include=['number']).columns:
+        df[col] = df[col].astype('Int32')
+
+    # leave only 10,000 rows
+    df = df.head(10000)
     
     return df

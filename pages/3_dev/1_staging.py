@@ -28,6 +28,8 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
 
 with tab1:
     personas_df = stg_censo_2024__personas()
+    st.warning("Sample de 10k como input")
+    
     render_model_ui(personas_df, table_name="Personas")
 
 with tab2:

@@ -1,7 +1,8 @@
 import streamlit as st
 
 from models.intermediate._int_censo_2024__personas import int_censo_2024__personas
-# from models.staging.censo_2024._int_censo_2024__hogares import int_censo_2024__hogares
+from models.intermediate._int_censo_2024__hogares import int_censo_2024__hogares
+
 # from models.staging.censo_2024._int_censo_2024__viviendas import int_censo_2024__viviendas
 
 from utilities.ui_components.render_model import render_model_ui
@@ -21,9 +22,9 @@ with tab1:
     personas_df = int_censo_2024__personas()
     render_model_ui(personas_df, table_name="Personas")
 
-# with tab2:
-#     hogares_df = stg_censo_2024__hogares()
-#     render_model_ui(hogares_df, table_name="Hogares")
+with tab2:
+    hogares_df = int_censo_2024__hogares()
+    render_model_ui(hogares_df, table_name="Hogares")
 
 # with tab3:
 #     viviendas_df = stg_censo_2024__viviendas()

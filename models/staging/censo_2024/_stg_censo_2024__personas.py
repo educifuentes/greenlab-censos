@@ -12,16 +12,23 @@ def stg_censo_2024__personas():
     
     # Extract the path for the 'personas' table
     tables = config['sources']['censos']['tables']
-    csv_rel_path = next(t['path'] for t in tables if t['name'] == 'personas')
+    rel_path = next(t['path_sample'] for t in tables if t['name'] == 'personas')
     
     # Construct the absolute path (project root is 3 levels up from this staging file)
     project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..'))
-    csv_path = os.path.join(project_root, csv_rel_path)
+    file_path = os.path.join(project_root, rel_path)
 
-    df = pd.read_csv(csv_path, delimiter=';')
+    # read parquet
+    df = pd.read_csv(file_path, delimiter=';', encoding='latin1')
+
+    # data types
     
-    # leave only 100,000 rows
-    df = df.head(100000)
+    # cast all columns to nullable int32 (efficient for survey codes with missing values)
+    df = df.apply(pd.to_numeric, errors='ignore')
+    for col in df.select_dtypes(include=['number']).columns:
+        df[col] = df[col].astype('Int32')
+
+    # leave only 10,000 rows
+    df = df.head(10_000)
     
-    # Read and return the dataframe
     return df
