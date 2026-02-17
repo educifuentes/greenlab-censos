@@ -44,7 +44,37 @@
         "99": "No respuesta",
         "NA": "No aplica"
     },
-    "si_no_na_99": {
+    "p15a_serv_tel_movil": {
+        "1": "Sí",
+        "2": "No",
+        "99": "No respuesta",
+        "NA": "No aplica"
+    },
+    "p15b_serv_compu": {
+        "1": "Sí",
+        "2": "No",
+        "99": "No respuesta",
+        "NA": "No aplica"
+    },
+    "p15c_serv_tablet": {
+        "1": "Sí",
+        "2": "No",
+        "99": "No respuesta",
+        "NA": "No aplica"
+    },
+    "p15d_serv_internet_fija": {
+        "1": "Sí",
+        "2": "No",
+        "99": "No respuesta",
+        "NA": "No aplica"
+    },
+    "p15e_serv_internet_movil": {
+        "1": "Sí",
+        "2": "No",
+        "99": "No respuesta",
+        "NA": "No aplica"
+    },
+    "p15f_serv_internet_satelital": {
         "1": "Sí",
         "2": "No",
         "99": "No respuesta",
