@@ -14,7 +14,7 @@ def _get_table_path(table_name):
 
 def _read_csv(file_path):
     # Latin1 is common for Chilean government data (contains accents like á, é, ñ)
-    return pd.read_csv(file_path, sep=';', encoding='latin1')
+    return pd.read_csv(file_path, sep=',', encoding='latin1')
 
 def stg_censo_2024__codigos_regiones():
     file_path = _get_table_path('regiones')
