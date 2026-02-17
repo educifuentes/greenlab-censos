@@ -18,12 +18,20 @@ def _read_csv(file_path):
 
 def stg_censo_2024__codigos_regiones():
     file_path = _get_table_path('regiones')
-    return _read_csv(file_path)
+    df =_read_csv(file_path)
+
+    df.rename(columns={'region_cod': 'cod_region'}, inplace=True)
+    return df
 
 def stg_censo_2024__codigos_provincias():
     file_path = _get_table_path('provincias')
-    return _read_csv(file_path)
+    df =_read_csv(file_path)
+
+    df.rename(columns={'Cod_provincia': 'cod_provincia', 'Provincia': 'provincia_nombre'}, inplace=True)
+    return df
 
 def stg_censo_2024__codigos_comunas():
     file_path = _get_table_path('comunas')
-    return _read_csv(file_path)
+    df =_read_csv(file_path)
+
+    return df
