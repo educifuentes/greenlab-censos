@@ -13,12 +13,12 @@ ICONS = {
     "warning": "warning",
     "close": "close",
     
-    # otros
+    # pages
     "documentation": "article",
     "metrics": "calculate",
     "not_apply": "circle",
-    
-    # UI/Layout
+    "query": "query_stats",
+    "catalog": "view_list",
     "dashboard": "dashboard",
     "search": "search",
     "layers": "layers_clear",

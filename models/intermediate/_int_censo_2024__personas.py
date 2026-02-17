@@ -3,7 +3,7 @@ import pandas as pd
 from models.staging.censo_2024._stg_censo_2024__personas import stg_censo_2024__personas
 from models.staging.censo_2024._stg_censo_2024__codigos import stg_censo_2024__codigos_regiones, stg_censo_2024__codigos_provincias, stg_censo_2024__codigos_comunas
 
-from utilities.data_transformations.survey_processing import map_survey_codes
+from utilities.data_transformations.survey_processing import map_survey_personas
 from utilities.yaml_loader import get_table_config
 
 def int_censo_2024__personas():
@@ -12,7 +12,7 @@ def int_censo_2024__personas():
     # replace survey codes with categorical values
     table_config = get_table_config('censos', 'personas', 'models/staging/censo_2024/_src_censo_2024.yml')
     mapping_path = table_config.get('survey_dictionary_path')
-    personas_df = map_survey_codes(personas_df, mapping_path)
+    personas_df = map_survey_personas(personas_df, mapping_path)
 
     # join with geo code tables
     personas_df = pd.merge(personas_df, stg_censo_2024__codigos_regiones(), left_on='region', right_on='cod_region', how='left')

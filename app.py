@@ -15,11 +15,13 @@ st.set_page_config(
 pages = {
     "Vistas": [
         st.Page("pages/1_views/1_overview.py", title="Overview", icon=render_icon("dashboard")),
+        st.Page("pages/1_views/2_query_builder_semantic_models.py", title="Query Builder", icon=render_icon("query")),
     ],
     "Herramientas": [
         st.Page("pages/2_tools/1_documentation.py", title="Documentación", icon=render_icon("documentation")),
         st.Page("pages/2_tools/2_validations.py", title="Validaciones de Datos", icon=render_icon("check")),
         st.Page("pages/2_tools/3_explorer.py", title="Explorador de Datos", icon=render_icon("search")),
+        st.Page("pages/2_tools/4_catalog.py", title="Catalogo", icon=render_icon("catalog")),
     ],
     "Desarrollo": [
         st.Page("pages/3_dev/1_staging.py", title="Staging", icon=render_icon("layers")),
