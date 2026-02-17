@@ -3,63 +3,27 @@ import os
 
 from utilities.yaml_loader import load_yaml_config
 
-def stg_censo_2024__codigos_regiones():
-    """
-    Loads hogares data using the path defined in the YAML configuration.
-    """
-    # Load the YAML file as a dictionary
-    config = load_yaml_config('models/staging/censo_2024/_src_censo_2024__codigos.yml')
+def _get_table_path(table_name):
+    config = load_yaml_config('models/staging/_src_censo_2024__codigos.yml')
+    # The yaml structure is: {'tables': [{'name': ..., 'path': ...}, ...]}
+    tables = config['tables']
+    rel_path = next(t['path'] for t in tables if t['name'] == table_name)
     
-    # Extract the path for the 'hogares' table
-    tables = config['sources']['censos']['tables']
-    rel_path = next(t['path'] for t in tables if t['name'] == 'region')
-    
-    # Construct the absolute path (project root is 3 levels up from this staging file)
     project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..'))
-    file_path = os.path.join(project_root, rel_path)
+    return os.path.join(project_root, rel_path)
 
-    # read parquet
-    df = pd.read_parquet(file_path)
-    
-    return df
+def _read_csv(file_path):
+    # Latin1 is common for Chilean government data (contains accents like á, é, ñ)
+    return pd.read_csv(file_path, sep=';', encoding='latin1')
+
+def stg_censo_2024__codigos_regiones():
+    file_path = _get_table_path('regiones')
+    return _read_csv(file_path)
 
 def stg_censo_2024__codigos_provincias():
-    """
-    Loads hogares data using the path defined in the YAML configuration.
-    """
-    # Load the YAML file as a dictionary
-    config = load_yaml_config('models/staging/censo_2024/_src_censo_2024__codigos.yml')
-    
-    # Extract the path for the 'hogares' table
-    tables = config['sources']['censos']['tables']
-    rel_path = next(t['path'] for t in tables if t['name'] == 'provincia')
-    
-    # Construct the absolute path (project root is 3 levels up from this staging file)
-    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..'))
-    file_path = os.path.join(project_root, rel_path)
-
-    # read parquet
-    df = pd.read_parquet(file_path)
-    
-    return df
+    file_path = _get_table_path('provincias')
+    return _read_csv(file_path)
 
 def stg_censo_2024__codigos_comunas():
-    """
-    Loads hogares data using the path defined in the YAML configuration.
-    """
-    # Load the YAML file as a dictionary
-    config = load_yaml_config('models/staging/censo_2024/_src_censo_2024__codigos.yml')
-    
-    # Extract the path for the 'hogares' table
-    tables = config['sources']['censos']['tables']
-    rel_path = next(t['path'] for t in tables if t['name'] == 'comuna')
-    
-    # Construct the absolute path (project root is 3 levels up from this staging file)
-    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..'))
-    file_path = os.path.join(project_root, rel_path)
-
-    # read parquet
-    df = pd.read_parquet(file_path)
-    
-    return df
-
+    file_path = _get_table_path('comunas')
+    return _read_csv(file_path)
