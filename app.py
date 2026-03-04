@@ -1,6 +1,7 @@
 import streamlit as st
 
 from utilities.ui_components.icons import ICONS, render_icon
+from utilities.get_version import get_git_version
 
 # --- PAGE CONFIG ---
 st.set_page_config(
@@ -37,6 +38,7 @@ pg = st.navigation(pages)
 # --- SIDEBAR & BRANDING ---
 with st.sidebar:
     st.markdown(f"# {render_icon('logo')} Greenlab")
+    st.caption(f"{get_git_version()}")
     st.markdown("---")
 
 # --- RUN NAVIGATION ---
